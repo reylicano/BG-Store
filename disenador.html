@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BG Store - Perfumes de Diseñador</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] },
+          colors: { 'brand-dark': '#0a0a0a', 'brand-light': '#f5f5f5', 'brand-accent': '#a8a29e' }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-dark text-brand-light font-sans antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-brand-dark bg-opacity-90 backdrop-blur-md shadow-lg shadow-black/30">
+    <nav class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center" aria-label="BG Store Home">
+          <img src="imagenes/bruce_logo.jpg" alt="BG Store Logo" class="h-20 w-24 rounded-md" loading="lazy" width="96" height="80" onerror="this.onerror=null; this.src='https://placehold.co/96x80/0a0a0a/f5f5f5?text=Logo';">
+        </a>
+        <!-- Menú de escritorio -->
+        <div class="hidden sm:flex sm:space-x-8">
+          <a href="index.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
+          <a href="arabes.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Perfumes Árabes</a>
+          <a href="disenador.html" class="text-white bg-gray-800 px-3 py-2 rounded-md text-sm font-medium">Perfumes de Diseñador</a>
+        </div>
+        <!-- Botón de menú móvil -->
+        <div class="sm:hidden">
+          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <span class="sr-only">Abrir menú principal</span>
+            <svg id="icon-open" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="icon-close" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <!-- Panel de menú móvil -->
+    <div id="mobile-menu" class="hidden sm:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="index.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
+        <a href="arabes.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Perfumes Árabes</a>
+        <a href="disenador.html" class="text-white bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Perfumes de Diseñador</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="perfumes" class="py-12 sm:py-20">
+      <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-center text-white mb-10">Perfumes de Diseñador</h2>
+
+        <!-- NUEVO: Buscador -->
+        <div class="mb-12 max-w-lg mx-auto">
+            <input type="text" id="buscador" 
+                   placeholder="Buscar perfume..." 
+                   class="w-full px-4 py-3 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent">
+        </div>
+
+        <!-- MARCA: Jean Paul Gaultier -->
+        <h3 class="brand-heading text-2xl sm:text-3xl font-serif font-semibold text-brand-accent mb-8 border-b border-gray-700 pb-2">Jean Paul Gaultier</h3>
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          
+          <!-- Jean Paul -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/jean_paul_caja.jpg" alt="Jean Paul Gaultier Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Jean+Paul';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Jean Paul Gaultier</h4>
+              <p class="text-gray-300 text-sm mb-4">Ambarada-almizclada con presencia elegante.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$55</p>
+            </div>
+          </div>
+          
+          <!-- Puedes agregar más perfumes de diseñador aquí -->
+
+        </div> <!-- Fin del grid -->
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-black py-12">
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+      <p class="text-sm">&copy; 2025 BG Store. Todos los derechos reservados.</p>
+      <p class="text-xs mt-2">Designed by Reyli.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // --- Menú móvil ---
+      const menuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('icon-open');
+      const iconClose = document.getElementById('icon-close');
+
+      if (menuButton && mobileMenu && iconOpen && iconClose) {
+        menuButton.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            iconOpen.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+          });
+        });
+      }
+
+      // --- Buscador ---
+      const buscador = document.getElementById('buscador');
+      const productCards = document.querySelectorAll('.product-card');
+      const brandHeadings = document.querySelectorAll('.brand-heading');
+
+      if (buscador && productCards.length > 0 && brandHeadings.length > 0) {
+        buscador.addEventListener('input', (e) => {
+          const query = e.target.value.toLowerCase().trim();
+
+          // 1. Filtrar tarjetas de productos
+          productCards.forEach(card => {
+            const cardText = card.textContent.toLowerCase();
+            if (cardText.includes(query)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          // 2. Administrar visibilidad de títulos de marca
+          brandHeadings.forEach(heading => {
+            const grid = heading.nextElementSibling; 
+            if (grid && grid.classList.contains('grid')) {
+              let hasVisibleCard = false;
+              const cardsInGrid = grid.querySelectorAll('.product-card');
+              cardsInGrid.forEach(cardInGrid => {
+                  if (cardInGrid.style.display !== 'none') {
+                      hasVisibleCard = true;
+                  }
+              });
+
+              if (hasVisibleCard) {
+                heading.style.display = 'block';
+              } else {
+                heading.style.display = 'none';
+              }
+            }
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+
