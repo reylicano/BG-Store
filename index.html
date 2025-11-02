@@ -12,18 +12,43 @@
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { sans: ['Inter','sans-serif'], serif: ['Playfair Display','serif'] },
-          colors: { 'brand-dark':'#0a0a0a','brand-light':'#f5f5f5','brand-accent':'#a8a29e' }
+          fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] },
+          colors: { 'brand-dark': '#0a0a0a', 'brand-light': '#f5f5f5', 'brand-accent': '#a8a29e' }
         }
       }
     }
   </script>
   <style>
-    .hero-bg{background-image:url('https://placehold.co/1920x1080/0a0a0a/333333?text=BG+Store');background-size:cover;background-position:center;}
-    .dots-container{position:absolute;bottom:8px;left:0;right:0;text-align:center;pointer-events:none}
-    .perfume-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#6b7280;margin:0 4px;cursor:pointer;transition:background-color .3s ease;pointer-events:all}
-    .perfume-dot.active{background:#f5f5f5}
-    .perfume-image{transition:opacity .3s ease-in-out}
+    /* Estilo del Hero con imagen de fondo */
+    .hero-bg {
+      background-image: url('https://placehold.co/1920x1080/0a0a0a/333333?text=BG+Store');
+      background-size: cover;
+      background-position: center;
+    }
+    /* Contenedor para los puntos del carrusel */
+    .dots-container {
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      pointer-events: none;
+    }
+    /* Estilo de cada punto del carrusel */
+    .perfume-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #6b7280;
+      margin: 0 4px;
+      cursor: pointer;
+      transition: background-color .3s ease;
+      pointer-events: all;
+    }
+    .perfume-dot.active { background: #f5f5f5; }
+    /* Transición suave para la imagen del perfume */
+    .perfume-image { transition: opacity .3s ease-in-out; }
   </style>
 </head>
 <body class="bg-brand-dark text-brand-light font-sans antialiased">
@@ -34,8 +59,9 @@
       <div class="flex items-center justify-between h-20">
         <a href="#" class="flex items-center" aria-label="BG Store Home">
           <!-- Ruta de imagen sin cambios -->
-          <img src="imagenes/bruce_logo.jpg" alt="BG Store Logo" class="h-20 w-24 rounded-md" loading="lazy" width="96" height="80">
+          <img src="imagenes/bruce_logo.jpg" alt="BG Store Logo" class="h-20 w-24 rounded-md" loading="lazy" width="96" height="80" onerror="this.onerror=null; this.src='https://placehold.co/96x80/0a0a0a/f5f5f5?text=Logo';">
         </a>
+        <!-- Menú de escritorio (Oculto en móvil) -->
         <div class="hidden sm:flex sm:space-x-8">
           <a href="#inicio" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
           <a href="#perfumes" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Perfumes</a>
@@ -43,6 +69,7 @@
           <a href="#nosotros" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sobre Nosotros</a>
           <a href="#contacto" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contacto</a>
         </div>
+        <!-- Botón de menú móvil (Visible solo en móvil) -->
         <div class="sm:hidden">
           <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
             <span class="sr-only">Abrir menú principal</span>
@@ -52,6 +79,7 @@
         </div>
       </div>
     </nav>
+    <!-- Panel de menú móvil (oculto por defecto) -->
     <div id="mobile-menu" class="hidden sm:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1">
         <a href="#inicio" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
@@ -65,447 +93,501 @@
 
   <main>
     <!-- Hero -->
-    <section id="inicio" class="hero-bg h-[70vh] min-h-[500px] flex items-center justify-center relative">
+    <!-- CAMBIO: Altura de hero ajustada para mejor visualización en móvil -->
+    <section id="inicio" class="hero-bg h-[60vh] min-h-[450px] flex items-center justify-center relative">
       <div class="absolute inset-0 bg-black opacity-60"></div>
       <div class="relative z-10 text-center px-4">
         <h1 class="text-4xl sm:text-6xl font-serif font-bold tracking-tight text-white mb-4">Descubre Tu Esencia</h1>
-        <p class="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">Perfumes de diseñador y decants exclusivos para conocedores.</p>
+        <p class="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">Perfumes de diseñador y árabes exclusivos para conocedores.</p>
         <a href="#perfumes" class="bg-white text-brand-dark font-bold py-3 px-8 rounded-lg text-sm uppercase tracking-wider hover:bg-gray-200 transition-colors shadow-lg">Ver Colección</a>
       </div>
     </section>
 
     <!-- Perfumes -->
-    <section id="perfumes" class="py-20 sm:py-28">
+    <!-- CAMBIO: Padding vertical (py) ajustado para móvil -->
+    <section id="perfumes" class="py-12 sm:py-20">
       <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-center text-white mb-12">Perfumes Destacados</h2>
+        
+        <!-- ===================================== -->
+        <!-- NUEVA SECCIÓN: PERFUMES ÁRABES         -->
+        <!-- ===================================== -->
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-center text-white mb-12">Perfumes Árabes</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           
           <!-- Club de Nuit Iconic -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <!-- CAMBIO: Flechas visibles en móvil (opacity-70), ocultas en desktop (md:opacity-0) y visibles en hover (md:group-hover:opacity-100) -->
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               
               <img src="imagenes/club_de_nuit.jpg" alt="Armaf Club De Nuit Iconic"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/club_de_nuit.jpg"
-                   data-img-2="imagenes/club_de_nuit_caja.jpg">
+                   data-img-2="imagenes/club_de_nuit_caja.jpg"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Iconic';">
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">Club de Nuit Iconic</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">Club de Nuit Iconic</h3>
               <p class="text-brand-accent text-sm mb-4">Armaf</p>
               <p class="text-gray-300 text-sm mb-4">Cítrica amaderada, excelente para oficina o uso formal diurno.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
 
           <!-- Club de Nuit Intense Man -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               <img src="imagenes/Club_de_nuit_man.jpg" alt="Armaf Club De Nuit Intense Man"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/Club_de_nuit_man.jpg"
-                   data-img-2="imagenes/Club_de_nuit_man_caja.jpg">
+                   data-img-2="imagenes/Club_de_nuit_man_caja.jpg"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Intense+Man';">
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">Club de Nuit Intense Man</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">Club de Nuit Intense Man</h3>
               <p class="text-brand-accent text-sm mb-4">Armaf</p>
               <p class="text-gray-300 text-sm mb-4">Fragancia cítrica-ahumada, versátil para eventos formales y salidas nocturnas.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
 
           <!-- Club de Nuit Urban Elixir -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               <img src="imagenes/club_de_nuit_urban_elixir.jpg" alt="Armaf Club De Nuit Urban Elixir"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/club_de_nuit_urban_elixir.jpg"
-                   data-img-2="imagenes/club_de_nuit_urban_elixir_caja.jpg">
+                   data-img-2="imagenes/club_de_nuit_urban_elixir_caja.jpg"
+                   onerror="this.onerror=null; this.src='https.placehold.co/400x300/900/f5f5f5?text=Urban+Elixir';">
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">Club de Nuit Urban Elixir</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">Club de Nuit Urban Elixir</h3>
               <p class="text-brand-accent text-sm mb-4">Armaf</p>
               <p class="text-gray-300 text-sm mb-4">Fragancia amaderada-especiada, perfecta para ocasiones especiales y noches.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
 
           <!-- 9PM -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               <img src="imagenes/9pm.jpg" alt="Afnan 9PM"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/9pm.jpg"
-                   data-img-2="imagenes/9pm_caja.jpg">
+                   data-img-2="imagenes/9pm_caja.jpg"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=9PM';">
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">9PM</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">9PM</h3>
               <p class="text-brand-accent text-sm mb-4">Afnan</p>
               <p class="text-gray-300 text-sm mb-4">Fragancia dulce y avainillada, ideal para salidas nocturnas y clima frío.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
 
           <!-- 9am Dive -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               <img src="imagenes/9am.jpg" alt="Afnan 9am Dive 100 ml"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/9am.jpg"
-                   data-img-2="imagenes/9am_caja.jpg">
+                   data-img-2="imagenes/9am_caja.jpg"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=9AM+Dive';">
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">9am Dive</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">9am Dive</h3>
               <p class="text-brand-accent text-sm mb-4">Afnan</p>
               <p class="text-gray-300 text-sm mb-4">Aroma fresco acuático-aromático, excelente para el uso diario y el calor.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
 
           <!-- Bharara King -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               <img src="imagenes/bharara_king.jpg" alt="Bharara King 100 ml"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/bharara_king.jpg"
-                   data-img-2="imagenes/bharara_king_caja.jpg">
+                   data-img-2="imagenes/bharara_king_caja.jpg"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=King';">
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">Bharara King</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">Bharara King</h3>
               <p class="text-brand-accent text-sm mb-4">Bharara</p>
               <p class="text-gray-300 text-sm mb-4">Frutal cítrico con toque dulce, adecuado para el día o salidas casuales.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
 
           <!-- Hawas Elixir -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               <img src="imagenes/hawas_elixir.jpg" alt="Rasasi Hawas Elixir 100 ml"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/hawas_elixir.jpg"
-                   data-img-2="imagenes/hawas_elixir_caja.jpg">
+                   data-img-2="imagenes/hawas_elixir_caja.jpg"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Hawas+Elixir';">
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">Hawas Elixir</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">Hawas Elixir</h3>
               <p class="text-brand-accent text-sm mb-4">Rasasi</p>
               <p class="text-gray-300 text-sm mb-4">Fresco y avainillado con cacao, para salidas nocturnas y climas templados.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
 
           <!-- Hawas for Him -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               <img src="imagenes/hawas_for_him.jpg" alt="Rasasi Hawas for Him"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/hawas_for_him.jpg"
-                   data-img-2="imagenes/hawas_for_him_caja.jpg">
+                   data-img-2="imagenes/hawas_for_him_caja.jpg"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Hawas+Him';">
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">Hawas for Him</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">Hawas for Him</h3>
               <p class="text-brand-accent text-sm mb-4">Rasasi</p>
               <p class="text-gray-300 text-sm mb-4">Fragancia acuática y amaderada, muy versátil para el día a día y clima cálido.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
 
           <!-- Hawas Ice -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               <img src="imagenes/hawas_ice.jpg" alt="Rasasi Hawas Ice for Men"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/hawas_ice.jpg"
-                   data-img-2="imagenes/hawas_ices_caja.jpg">
+                   data-img-2="imagenes/hawas_ices_caja.jpg"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Hawas+Ice';">
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">Hawas Ice</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">Hawas Ice</h3>
               <p class="text-brand-accent text-sm mb-4">Rasasi</p>
               <p class="text-gray-300 text-sm mb-4">Fresco y dulce (manzana, especias), para uso diario en primavera/verano.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
-            </div>
-          </div>
-
-          <!-- Jean Paul -->
-          <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
-            <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-              </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-              </button>
-              <img src="imagenes/jean_paul.jpg" alt="Jean Paul Gaultier Fragancia"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
-                   data-img-1="imagenes/jean_paul.jpg"
-                   data-img-2="imagenes/jean_paul_caja.jpg">
-              <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">Jean Paul Gaultier</h3>
-              <p class="text-brand-accent text-sm mb-4">Jean Paul Gaultier</p>
-              <p class="text-gray-300 text-sm mb-4">Fragancia ambarada-almizclada con presencia elegante para citas.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
 
           <!-- Asad -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               <img src="imagenes/asad.jpg" alt="Lattafa Asad EDP 100 ml Unisex"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/asad.jpg"
-                   data-img-2="imagenes/asad_caja.jpg">
+                   data-img-2="imagenes/asad_caja.jpg"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Asad';">
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">Asad</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">Asad</h3>
               <p class="text-brand-accent text-sm mb-4">Lattafa</p>
               <p class="text-gray-300 text-sm mb-4">Especiada y ámbar, ideal para noches y climas fríos por su intensidad.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
 
           <!-- Asad Bourbon -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               <img src="imagenes/bourbon.jpg" alt="Lattafa Asad Bourbon"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/bourbon.jpg"
-                   data-img-2="imagenes/asad_bourbon_caja.jpg">
+                   data-img-2="imagenes/asad_bourbon_caja.jpg"
+                   onerror="this.onerror=null; this.src='httpshttps://placehold.co/400x300/900/f5f5f5?text=Bourbon';">
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">Asad Bourbon</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">Asad Bourbon</h3>
               <p class="text-brand-accent text-sm mb-4">Lattafa</p>
               <p class="text-gray-300 text-sm mb-4">Especiada-oriental avainillada, versátil para citas y uso diario.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
 
           <!-- Khamrah -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               <img src="imagenes/khamrah.jpg" alt="Lattafa Khamrah"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/khamrah.jpg"
-                   data-img-2="imagenes/khamrah_caja.jpg">
+                   data-img-2="imagenes/khamrah_caja.jpg"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Khamrah';">
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">Khamrah</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">Khamrah</h3>
               <p class="text-brand-accent text-sm mb-4">Lattafa</p>
               <p class="text-gray-300 text-sm mb-4">Aroma dulce gourmand (dátiles, vainilla), ideal para climas fríos y noches.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
 
           <!-- Khamrah Dukhan -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               <img src="imagenes/khamrah_dukhan.jpg" alt="Lattafa Khamrah Dukhan"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/khamrah_dukhan.jpg"
-                   data-img-2="imagenes/khamrah_dukhan_caja.jpg">
+                   data-img-2="imagenes/khamrah_dukhan_caja.jpg"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Dukhan';">
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">Khamrah Dukhan</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">Khamrah Dukhan</h3>
               <p class="text-brand-accent text-sm mb-4">Lattafa</p>
               <p class="text-gray-300 text-sm mb-4">Una variación intensa y ahumada de la popular fragancia Khamrah.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
 
           <!-- Khamrah Qahwa -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               <img src="imagenes/khamrah_qahwa.jpg" alt="Lattafa Khamrah Qahwa 100 ml"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/khamrah_qahwa.jpg"
-                   data-img-2="imagenes/khamrah_qahwa_caja.jpg">
+                   data-img-2="imagenes/khamrah_qahwa_caja.jpg"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Qahwa';">
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">Khamrah Qahwa</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">Khamrah Qahwa</h3>
               <p class="text-brand-accent text-sm mb-4">Lattafa</p>
               <p class="text-gray-300 text-sm mb-4">Versión con café y especias, perfecta para noches y climas fríos.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
 
           <!-- Liquid Brun -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               <img src="imagenes/liquid_brun.jpg" alt="Lattafa Liquid Brun"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/liquid_brun.jpg"
-                   data-img-2="imagenes/liquid_brun_caja.jpg">
+                   data-img-2="imagenes/liquid_brun_caja.jpg"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Liquid+Brun';">
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">Liquid Brun</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">Liquid Brun</h3>
               <p class="text-brand-accent text-sm mb-4">Lattafa</p>
               <p class="text-gray-300 text-sm mb-4">Fragancia amaderada y profunda, con un carácter distintivo y elegante.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
 
           <!-- The Kingdom -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               <img src="imagenes/the_kingdom.jpg" alt="Lattafa The Kingdom 100 ml"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/the_kingdom.jpg"
-                   data-img-2="imagenes/the_kingdom_caja.jpg">
+                   data-img-2="imagenes/the_kingdom_caja.jpg"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Kingdom';">
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">The Kingdom</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">The Kingdom</h3>
               <p class="text-brand-accent text-sm mb-4">Lattafa</p>
               <p class="text-gray-300 text-sm mb-4">Aroma avainillado y ambarado, ideal para eventos especiales.</p>
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
 
           <!-- Mandaryn Sky (NUEVO) -->
           <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
             <div class="relative">
-              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 sm:opacity-100 md:opacity-0">
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </button>
               
               <img src="imagenes/mandaryn.jpg" alt="Mandaryn Sky"
-                   class="object-contain h-64 w-full perfume-image" loading="lazy"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
                    data-img-1="imagenes/mandaryn.jpg"
-                   data-img-2="imagenes/mandaryn_caja.jpg">
-                   
+                   data-img-2="imagenes/mandaryn_caja.jpg"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Mandaryn';">
+                  
               <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
             </div>
             
-            <div class="p-6">
-              <h3 class="text-xl font-serif font-bold text-white mb-2">Mandaryn Sky</h3>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">Mandaryn Sky</h3>
               <p class="text-brand-accent text-sm mb-4">Lattafa</p> <!-- Puedes cambiar la marca -->
               <p class="text-gray-300 text-sm mb-4">Una fragancia cítrica y fresca, perfecta para el uso diario y climas cálidos.</p> <!-- Puedes cambiar la descripción -->
-              <p class="text-2xl font-serif font-bold text-white mt-4">$55</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
             </div>
           </div>
+        </div> <!-- Fin del grid de Perfumes Árabes -->
 
-        </div>
+
+        <!-- ===================================== -->
+        <!-- NUEVA SECCIÓN: PERFUMES DE DISEÑADOR   -->
+        <!-- ===================================== -->
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-center text-white mt-12 sm:mt-16 mb-10 sm:mb-12">Perfumes de Diseñador</h2>
+
+        <!-- CAMBIO: Este grid centra la única tarjeta en pantallas medianas y grandes -->
+        <div class="grid grid-cols-1 gap-8 sm:w-1/2 lg:w-1/3 mx-auto">
+          <!-- Jean Paul -->
+          <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300 group">
+            <div class="relative">
+              <button class="perfume-prev absolute top-1/2 left-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+              </button>
+              <button class="perfume-next absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-opacity opacity-70 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+              </button>
+              <img src="imagenes/jean_paul.jpg" alt="Jean Paul Gaultier Fragancia"
+                   class="object-contain h-56 sm:h-64 w-full perfume-image" loading="lazy"
+                   data-img-1="imagenes/jean_paul.jpg"
+                   data-img-2="imagenes/jean_paul_caja.jpg"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Jean+Paul';">
+              <div class="dots-container"><span class="perfume-dot active" data-slide="0"></span><span class="perfume-dot" data-slide="1"></span></div>
+            </div>
+            <div class="p-4 sm:p-6">
+              <h3 class="text-lg sm:text-xl font-serif font-bold text-white mb-2">Jean Paul Gaultier</h3>
+              <p class="text-brand-accent text-sm mb-4">Jean Paul Gaultier</p>
+              <p class="text-gray-300 text-sm mb-4">Fragancia ambarada-almizclada con presencia elegante para citas.</p>
+              <!-- CAMBIO DE FUENTE: de font-serif font-bold a font-sans font-medium -->
+              <p class="text-xl sm:text-2xl font-sans font-medium text-white mt-4">$55</p>
+            </div>
+          </div>
+        </div> <!-- Fin del grid de Perfumes de Diseñador -->
+
       </div>
     </section>
 
     <!-- Decants -->
-    <section id="decants" class="py-20 sm:py-28 bg-gray-900">
+    <!-- CAMBIO: Padding vertical (py) ajustado para móvil -->
+    <section id="decants" class="py-12 sm:py-20 bg-gray-900">
       <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <!-- Estructura mobile-first: flex-col por defecto, lg:flex-row en pantallas grandes -->
         <div class="flex flex-col lg:flex-row items-center gap-12">
           <div class="lg:w-1/2">
             <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mb-6">Prueba Antes de Comprar: Decants</h2>
@@ -513,14 +595,15 @@
             <p class="text-gray-300 mb-8">Descubre nuevos favoritos, crea una colección versátil y lleva tus perfumes contigo a donde vayas.</p>
           </div>
           <div class="lg:w-1/2">
-            <img src="imagenes/decants.png" alt="Imagen de varios frascos pequeños de decants de perfume" class="rounded-lg shadow-xl w-full" loading="lazy">
+            <img src="imagenes/decants.png" alt="Imagen de varios frascos pequeños de decants de perfume" class="rounded-lg shadow-xl w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/600x400/900/f5f5f5?text=Decants';">
           </div>
         </div>
       </div>
     </section>
 
     <!-- Sobre Nosotros -->
-    <section id="nosotros" class="py-20 sm:py-28">
+    <!-- CAMBIO: Padding vertical (py) ajustado para móvil -->
+    <section id="nosotros" class="py-12 sm:py-20">
       <div class="container mx-auto max-w-4xl text-center px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mb-6">La Pasión por el Aroma</h2>
         <p class="text-lg text-gray-300 mb-4">Un aroma puede cambiar tu día, tu estado de ánimo, incluso tu historia.</p>
@@ -529,11 +612,13 @@
     </section>
 
     <!-- Contacto -->
-    <section id="contacto" class="py-20 sm:py-28 bg-gray-900">
+    <!-- CAMBIO: Padding vertical (py) ajustado para móvil -->
+    <section id="contacto" class="py-12 sm:py-20 bg-gray-900">
       <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white text-center mb-10">Ponte en Contacto</h2>
         <div class="text-center max-w-xl mx-auto">
           <p class="text-gray-300 text-lg mb-8">La forma más rápida de contactarnos es a través de nuestro Instagram. ¡Envíanos un DM!</p>
+          <!-- Estructura mobile-first: w-full por defecto, sm:w-auto en pantallas pequeñas -->
           <a href="https://www.instagram.com/bg__store1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"
              class="inline-flex items-center justify-center py-3 px-10 border border-transparent shadow-lg rounded-lg text-brand-dark bg-white hover:bg-gray-200 font-bold uppercase tracking-wider transition-colors w-full sm:w-auto">
             <!-- SVG DE INSTAGRAM ACTUALIZADO -->
@@ -574,6 +659,7 @@
           iconClose.classList.toggle('hidden');
         });
 
+        // Cierra el menú al hacer clic en un enlace
         document.querySelectorAll('#mobile-menu a').forEach(link => {
           link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
@@ -610,12 +696,14 @@
         }, 300);
       }
 
+      // Se usa delegación de eventos en la sección principal de perfumes
       const perfumeSection = document.getElementById('perfumes');
 
       if (perfumeSection) {
         perfumeSection.addEventListener('click', (e) => {
+          // Encuentra la tarjeta (.bg-gray-900) más cercana al clic
           const card = e.target.closest('.bg-gray-900');
-          if (!card) return;
+          if (!card) return; // Si no se hizo clic dentro de una tarjeta, no hacer nada
 
           // Click en dots
           if (e.target.classList.contains('perfume-dot')) {
@@ -644,4 +732,3 @@
   </script>
 </body>
 </html>
-
