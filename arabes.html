@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BG Store - Perfumes Árabes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] },
+          colors: { 'brand-dark': '#0a0a0a', 'brand-light': '#f5f5f5', 'brand-accent': '#a8a29e' }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-dark text-brand-light font-sans antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-brand-dark bg-opacity-90 backdrop-blur-md shadow-lg shadow-black/30">
+    <nav class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center" aria-label="BG Store Home">
+          <img src="imagenes/bruce_logo.jpg" alt="BG Store Logo" class="h-20 w-24 rounded-md" loading="lazy" width="96" height="80" onerror="this.onerror=null; this.src='https://placehold.co/96x80/0a0a0a/f5f5f5?text=Logo';">
+        </a>
+        <!-- Menú de escritorio -->
+        <div class="hidden sm:flex sm:space-x-8">
+          <a href="index.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
+          <a href="arabes.html" class="text-white bg-gray-800 px-3 py-2 rounded-md text-sm font-medium">Perfumes Árabes</a>
+          <a href="disenador.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Perfumes de Diseñador</a>
+        </div>
+        <!-- Botón de menú móvil -->
+        <div class="sm:hidden">
+          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <span class="sr-only">Abrir menú principal</span>
+            <svg id="icon-open" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="icon-close" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <!-- Panel de menú móvil -->
+    <div id="mobile-menu" class="hidden sm:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="index.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
+        <a href="arabes.html" class="text-white bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Perfumes Árabes</a>
+        <a href="disenador.html" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Perfumes de Diseñador</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="perfumes" class="py-12 sm:py-20">
+      <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-center text-white mb-10">Perfumes Árabes</h2>
+
+        <!-- NUEVO: Buscador -->
+        <div class="mb-12 max-w-lg mx-auto">
+            <input type="text" id="buscador" 
+                   placeholder="Buscar perfume..." 
+                   class="w-full px-4 py-3 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent">
+        </div>
+
+        <!-- MARCA: Armaf -->
+        <h3 class="brand-heading text-2xl sm:text-3xl font-serif font-semibold text-brand-accent mb-8 border-b border-gray-700 pb-2">Armaf</h3>
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mb-12">
+          
+          <!-- Club de Nuit Intense -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/Club_de_nuit_man_caja.jpg" alt="Club de Nuit Intense Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Intense';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Club de Nuit Intense</h4>
+              <p class="text-gray-300 text-sm mb-4">Fragancia cítrica-ahumada, versátil.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$45</p>
+            </div>
+          </div>
+          <!-- Club de Nuit Iconic -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/club_de_nuit_caja.jpg" alt="Club de Nuit Iconic Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Iconic';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Club de Nuit Iconic</h4>
+              <p class="text-gray-300 text-sm mb-4">Cítrica amaderada, excelente para oficina.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$55</p>
+            </div>
+          </div>
+          <!-- Club de Nuit Urban Elixir -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/club_de_nuit_urban_elixir_caja.jpg" alt="Club de Nuit Urban Elixir Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Urban+Elixir';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Club de Nuit Urban Elixir</h4>
+              <p class="text-gray-300 text-sm mb-4">Amaderada-especiada, para ocasiones especiales.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$50</p>
+            </div>
+          </div>
+          <!-- Odyssey Qua -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/oddysey_aqua.jpg" alt="Odyssey Qua Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Odyssey+Qua';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Odyssey Aqua</h4>
+              <p class="text-gray-300 text-sm mb-4">Aromática fresca y marina.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$48</p>
+            </div>
+          </div>
+          <!-- Odyssey Mega -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/odyssey_mega.jpg" alt="Odyssey Mega Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Odyssey+Mega';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Odyssey Mega</h4>
+              <p class="text-gray-300 text-sm mb-4">Cítrica amaderada y moderna.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$50</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MARCA: Afnan -->
+        <h3 class="brand-heading text-2xl sm:text-3xl font-serif font-semibold text-brand-accent mb-8 border-b border-gray-700 pb-2">Afnan</h3>
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mb-12">
+          <!-- 9PM -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/9pm_caja.jpg" alt="Afnan 9PM Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=9PM';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">9PM</h4>
+              <p class="text-gray-300 text-sm mb-4">Dulce y avainillada, ideal para salidas nocturnas.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$48</p>
+            </div>
+          </div>
+          <!-- 9am Dive -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/9am_caja.jpg" alt="Afnan 9am Dive Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=9AM+Dive';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">9am Dive</h4>
+              <p class="text-gray-300 text-sm mb-4">Fresco acuático-aromático, para uso diario.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$48</p>
+            </div>
+          </div>
+          <!-- 9pm Rebel -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/9pm rebel.jpg" alt="9pm Rebel Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=9PM+Rebel';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">9pm Rebel</h4>
+              <p class="text-gray-300 text-sm mb-4">Una versión más oscura y rebelde de 9pm.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$50</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MARCA: Bharara -->
+        <h3 class="brand-heading text-2xl sm:text-3xl font-serif font-semibold text-brand-accent mb-8 border-b border-gray-700 pb-2">Bharara</h3>
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mb-12">
+          <!-- Bharara King -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/bharara_king_caja.jpg" alt="Bharara King Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=King';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Bharara King</h4>
+              <p class="text-gray-300 text-sm mb-4">Frutal cítrico con toque dulce, salidas casuales.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$70</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MARCA: Rasasi -->
+        <h3 class="brand-heading text-2xl sm:text-3xl font-serif font-semibold text-brand-accent mb-8 border-b border-gray-700 pb-2">Rasasi</h3>
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mb-12">
+          <!-- Hawas Elixir -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/hawas_elixir_caja.jpg" alt="Rasasi Hawas Elixir Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Hawas+Elixir';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Hawas Elixir</h4>
+              <p class="text-gray-300 text-sm mb-4">Fresco y avainillado con cacao, climas templados.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$55</p>
+            </div>
+          </div>
+          <!-- Hawas for Him -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/hawas_for_him_caja.jpg" alt="Rasasi Hawas for Him Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Hawas+Him';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Hawas for Him</h4>
+              <p class="text-gray-300 text-sm mb-4">Acuática y amaderada, versátil para clima cálido.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$50</p>
+            </div>
+          </div>
+          <!-- Hawas Ice -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/hawas_ices_caja.jpg" alt="Rasasi Hawas Ice Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Hawas+Ice';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Hawas Ice</h4>
+              <p class="text-gray-300 text-sm mb-4">Fresco y dulce (manzana, especias), primavera/verano.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$52</p>
+            </div>
+          </div>
+          <!-- Hawas Fire -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/hawas_fire.jpg" alt="Hawas Fire Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Hawas+Fire';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Hawas Fire</h4>
+              <p class="text-gray-300 text-sm mb-4">Cálida especiada y oriental.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$55</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MARCA: Lattafa -->
+        <h3 class="brand-heading text-2xl sm:text-3xl font-serif font-semibold text-brand-accent mb-8 border-b border-gray-700 pb-2">Lattafa</h3>
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mb-12">
+          <!-- Asad -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/asad_caja.jpg" alt="Lattafa Asad Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Asad';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Asad</h4>
+              <p class="text-gray-300 text-sm mb-4">Especiada y ámbar, ideal para noches y climas fríos.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$48</p>
+            </div>
+          </div>
+          <!-- Asad Bourbon -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/asad_bourbon_caja.jpg" alt="Lattafa Asad Bourbon Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Bourbon';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Asad Bourbon</h4>
+              <p class="text-gray-300 text-sm mb-4">Especiada-oriental avainillada, versátil para citas.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$48</p>
+            </div>
+          </div>
+          <!-- Khamrah -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/khamrah_caja.jpg" alt="Lattafa Khamrah Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Khamrah';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Khamrah</h4>
+              <p class="text-gray-300 text-sm mb-4">Dulce gourmand (dátiles, vainilla), climas fríos.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$48</p>
+            </div>
+          </div>
+          <!-- Khamrah Dukham -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/khamrah_dukhan_caja.jpg" alt="Lattafa Khamrah Dukham Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Dukham';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Khamrah Dukham</h4>
+              <p class="text-gray-300 text-sm mb-4">Variación intensa y ahumada de Khamrah.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$55</p>
+            </div>
+          </div>
+          <!-- Khamrah Qawha -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/khamrah_qahwa_caja.jpg" alt="Lattafa Khamrah Qawha Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Qawha';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Khamrah Qawha</h4>
+              <p class="text-gray-300 text-sm mb-4">Versión con café y especias, para noches frías.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$50</p>
+            </div>
+          </div>
+          <!-- Liquid Brun -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/liquid_brun_caja.jpg" alt="Lattafa Liquid Brun Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Liquid+Brun';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Liquid Brun</h4>
+              <p class="text-gray-300 text-sm mb-4">Fragancia amaderada y profunda, carácter distintivo.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$52</p>
+            </div>
+          </div>
+          <!-- The Kingdom -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/the_kingdom_caja.jpg" alt="Lattafa The Kingdom Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Kingdom';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">The Kingdom</h4>
+              <p class="text-gray-300 text-sm mb-4">Aroma avainillado y ambarado, eventos especiales.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$52</p>
+            </div>
+          </div>
+          <!-- Mandarin Sky -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/mandaryn.jpg" alt="Mandarin Sky Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Mandarin';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Mandarin Sky</h4>
+              <p class="text-gray-300 text-sm mb-4">Fragancia cítrica y fresca, uso diario, climas cálidos.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$48</p>
+            </div>
+          </div>
+          <!-- Mandarin Sky Elixir -->
+          <div class="product-card bg-gray-900 rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-105 duration-300">
+            <img src="imagenes/mandaryn_elixir.jpg" alt="Mandarin Sky Elixir Caja" class="object-contain h-56 w-full" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300/900/f5f5f5?text=Mandarin+Elixir';">
+            <div class="p-4">
+              <h4 class="text-lg font-serif font-bold text-white mb-2">Mandarin Sky Elixir</h4>
+              <p class="text-gray-300 text-sm mb-4">Versión más potente y profunda de Mandarin Sky.</p>
+              <p class="text-xl font-sans font-medium text-white mt-4">$52</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-black py-12">
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+      <p class="text-sm">&copy; 2025 BG Store. Todos los derechos reservados.</p>
+      <p class="text-xs mt-2">Designed by Reyli.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // --- Menú móvil ---
+      const menuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('icon-open');
+      const iconClose = document.getElementById('icon-close');
+
+      if (menuButton && mobileMenu && iconOpen && iconClose) {
+        menuButton.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            iconOpen.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+          });
+        });
+      }
+
+      // --- Buscador ---
+      const buscador = document.getElementById('buscador');
+      const productCards = document.querySelectorAll('.product-card');
+      const brandHeadings = document.querySelectorAll('.brand-heading');
+
+      if (buscador && productCards.length > 0 && brandHeadings.length > 0) {
+        buscador.addEventListener('input', (e) => {
+          const query = e.target.value.toLowerCase().trim();
+
+          // 1. Filtrar tarjetas de productos
+          productCards.forEach(card => {
+            const cardText = card.textContent.toLowerCase();
+            if (cardText.includes(query)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          // 2. Administrar visibilidad de títulos de marca
+          brandHeadings.forEach(heading => {
+            const grid = heading.nextElementSibling; // El grid es el siguiente elemento
+            if (grid && grid.classList.contains('grid')) {
+              // Comprobar si algún 'product-card' dentro de este grid está visible
+              // (style.display === 'block' o el estilo no ha sido tocado)
+              const visibleCards = grid.querySelectorAll('.product-card[style*="display: block"], .product-card:not([style*="display: none"])');
+              
+              // Corrección: querySelectorAll no puede encontrar :not([style]) fácilmente en todos los navegadores.
+              // Una lógica más simple:
+              let hasVisibleCard = false;
+              const cardsInGrid = grid.querySelectorAll('.product-card');
+              cardsInGrid.forEach(cardInGrid => {
+                  if (cardInGrid.style.display !== 'none') {
+                      hasVisibleCard = true;
+                  }
+              });
+
+              if (hasVisibleCard) {
+                heading.style.display = 'block'; // Mostrar título de la marca
+              } else {
+                heading.style.display = 'none';  // Ocultar título si no hay productos
+              }
+            }
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+
